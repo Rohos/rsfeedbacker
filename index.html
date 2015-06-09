@@ -3,9 +3,83 @@
 	<head>
 		<meta charset="utf-8">
 		<title>rsFeedbacker</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 
 	<body>
-		
+		<div class="container">
+
+			<!-- DEFAULT -->
+			<div class="form_box">
+				<form action="/send.php" method="POST" class="form_for_send" novalidate="novalidate">
+
+					<div>
+						<label>Имя: <b>*</b></label>
+						<input type="text" name="name" required="required" data-label="Имя" placeholder="Имя *">
+					</div>
+
+					<div>
+						<label>E-mail: <b>*</b></label>
+						<input type="email" name="email" required="required" data-label="E-mail" placeholder="E-mail *">
+					</div>
+
+					<div>
+						<label>Телефон: </label>
+						<input type="text" name="phone" data-label="Телефон" placeholder="Телефон">
+					</div>
+
+					<input type="submit" value="Отправить">
+				</form>
+			</div>
+			<br>
+			<hr>
+			<br>
+
+			<!-- BOOTSTRAP -->
+	        <div class="col-md-12 form_box">
+	            <form action="/send.php" method="POST" class="bootstrap_form_for_send" novalidate="novalidate">
+	                <div class="row">
+	                    <div class="form-group">
+	                        <div class="col-md-12">
+	                            <label class="control-label" for="name">Имя *</label>
+	                            <input type="text" value="" maxlength="200" data-label="Имя" class="form-control" name="name" id="name" required="required">
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <div class="col-md-12">
+	                            <label class="control-label" for="email">E-mail *</label>
+	                            <input type="email" value="" maxlength="200" data-label="E-mail" class="form-control" name="email" id="email" required="required">
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <div class="col-md-12">
+	                            <label class="control-label" for="phone">Телефон</label>
+	                            <input type="text" value="" maxlength="200" data-label="Телефон" class="form-control" name="phone" id="phone">
+	                        </div>
+	                    </div>
+	                </div>
+
+	                <div class="row">
+	                    <div class="col-md-12">
+	                        <input type="submit" value="Отправить" class="btn btn-primary btn-block btn-lg" data-loading-text="Отправить">
+	                    </div>
+	                </div>
+	            </form>
+	        </div>
+
+        </div>
+
+		<!-- JS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="./js/jquery.rsfeedbacker.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			"use strict";
+
+			$('document').ready(function() {
+				$('form.form_for_send').rsFeedbacker();
+				$('form.bootstrap_form_for_send').rsFeedbacker({'type': 'bootstrap'});
+			});
+		</script>
 	</body>
 </html>
