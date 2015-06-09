@@ -17,7 +17,7 @@
         this._defaultType = 'default';
         this._defaultErrorKey = 'default';
         this._errorFldNamePattern = '{{%field%}}';
-        this._attrLabelFld = 'data-label';
+        this._attrLabelFld = 'data-rsfeedbacker-label';
         this._idModalBootstrap = 'id-rsfeedbacker-modal';
         this._settings = $.extend({}, {
             'debug': false, // (boolean)
@@ -27,8 +27,8 @@
             'errorCls': 'has-error', // (string)
             'type': 'default', // (string) item of this._types
             'needTrimVal': true, // (boolean)
-            'successMsg': 'РЎРїР°СЃРёР±Рѕ, СЃРѕРѕР±С‰РµРЅРёРµ СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅРѕ', // (string)
-            'errorMsgs': {'default': 'РџРѕР»Рµ {{%field%}} РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ'} // (object) {errorKey : "text error"}
+            'successMsg': 'Спасибо, сообщение успешно отправлено', // (string)
+            'errorMsgs': {'default': 'Поле {{%field%}} обязательно для заполнения'} // (object) {errorKey : "text error"}
         }, options);
 
         this.addListeners();
