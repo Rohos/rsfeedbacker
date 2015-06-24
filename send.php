@@ -74,6 +74,6 @@ if (empty($answer['errors']))
 }
 
 // Возвращаем ответ в формате JSON
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
 die(json_encode($data));
 ?>
