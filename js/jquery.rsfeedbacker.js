@@ -27,8 +27,8 @@
             'errorCls': 'has-error', // (string)
             'type': 'default', // (string) item of this._types
             'needTrimVal': true, // (boolean)
-            'successMsg': 'Спасибо, сообщение успешно отправлено', // (string)
-            'errorMsgs': {'default': 'Поле {{%field%}} обязательно для заполнения'} // (object) {errorKey : "text error"}
+            'successMsg': 'РЎРїР°СЃРёР±Рѕ, СЃРѕРѕР±С‰РµРЅРёРµ СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅРѕ', // (string)
+            'errorMsgs': {'default': 'РџРѕР»Рµ {{%field%}} РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ'} // (object) {errorKey : "text error"}
         }, options);
 
         this.addListeners();
