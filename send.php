@@ -40,7 +40,7 @@ $fields = array(
         'label' => 'E-mail',
         'error_msg' => 'Некорректное значение поля "'. FLD_LBL_PATTERN .'"'
     ),
-    'email' => array(
+    'phone' => array(
         'required' => false,
         'rule' => FILTER_SANITIZE_STRING,
         'label' => 'Телефон',
