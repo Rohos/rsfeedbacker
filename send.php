@@ -1,4 +1,4 @@
-<?
+<?php
 // Проверка что отправлено методом POST иначе останавливаем скрипт
 if (strtoupper($_SERVER['REQUEST_METHOD']) != 'POST')
 {
@@ -49,13 +49,13 @@ $fields = array(
 );
 
 $body = '';
-$count = count($fields);
+
 // Проверяем данные формы и формируем письмо
 foreach ($fields as $field => $item)
 {
     $val = filter_input(INPUT_POST, $field, $item['rule']);
 
-    // Если поле обязательное и не заполнено или заполено некоректно - добавляем ошибку
+    // Если поле обязательное и не заполнено или заполено некорректно - добавляем ошибку
     if ( ! empty($item['required']) && empty($val))
     {
         // Если не задон текст ошибки используется дефолтный
@@ -63,13 +63,14 @@ foreach ($fields as $field => $item)
         $answer['errors'][$field] = str_ireplace(FLD_LBL_PATTERN, $item['label'], $error);
     }
 
-    $body .= "{$item['label']}: {$val}" . str_repeat("\n", --$count > 0 ? 2 : 1);
+    $body .= "<p>{$item['label']}: {$val} </p>";
 }
 
 // Если нет ошибок - отправляем письмо
 if (empty($answer['errors']))
 {
-    $headers = 'From: My Site <'.$email.'>' . "\r\n" . 'Reply-To: ' . $email;
+    $headers = "Content-type: text/html; charset=utf-8\r\n";
+    $headers .= 'From: My Site <'.$email.'>' . "\r\n" . 'Reply-To: ' . $email;
     mail($email, $subject, $body, $headers);
 }
 
