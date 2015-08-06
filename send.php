@@ -58,7 +58,7 @@ foreach ($fields as $field => $item)
     // Если поле обязательное и не заполнено или заполено некорректно - добавляем ошибку
     if ( ! empty($item['required']) && empty($val))
     {
-        // Если не задон текст ошибки используется дефолтный
+        // Если не задан текст ошибки используется дефолтный
         $error = (empty($item['error_msg'])) ? $default_error_msg : $item['error_msg'];
         $answer['errors'][$field] = str_ireplace(FLD_LBL_PATTERN, $item['label'], $error);
     }
