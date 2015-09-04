@@ -4,69 +4,109 @@
         <meta charset="utf-8">
         <title>rsFeedbacker</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .default-box input[type="text"], .default-box input[type="email"] {
+                width: 100%;
+                margin-bottom: 10px;
+                padding: 6px 0 4px 10px;
+                font-size: 15px;
+                border: 1px solid #cecece;
+                border-radius: 4px;
+            }
+            .default-box  .errors_box {
+                color: #a94442;
+            }
+            .default-box  .errors_box ul {
+                list-style: none;
+            }
+        </style>
     </head>
 
     <body>
         <div class="container">
 
-            <!-- DEFAULT -->
-            <div class="form_box">
-                <form action="/send.php" method="POST" class="form_for_send" novalidate="novalidate">
-
-                    <div>
-                        <label>Имя: <b>*</b></label>
-                        <input type="text" name="name" required="required" data-rsfeedbacker-label="Имя" placeholder="Имя *">
-                    </div>
-
-                    <div>
-                        <label>E-mail: <b>*</b></label>
-                        <input type="email" name="email" required="required" data-rsfeedbacker-label="E-mail" placeholder="E-mail *">
-                    </div>
-
-                    <div>
-                        <label>Телефон: </label>
-                        <input type="text" name="phone" data-rsfeedbacker-label="Телефон" placeholder="Телефон">
-                    </div>
-
-                    <input type="submit" value="Отправить">
-                </form>
-            </div>
-            <br>
             <hr>
-            <br>
+            <div>
+                <p>
+                    <strong>rsfeedbacker</strong> - простой Jquery плагин для отправки данных html формы. Работает асинхронно без перезагрузки и производит простую проверку, которая дополняется проверкой на сервере. На данный момент в плагине присутствует 2 типа поведения - "default" и "bootstrap".
+                </p>
+            </div>
+            <hr>
 
-            <!-- BOOTSTRAP -->
-            <div class="col-md-12 form_box">
-                <form action="/send.php" method="POST" class="bootstrap_form_for_send" novalidate="novalidate">
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label class="control-label" for="name">Имя *</label>
-                                <input type="text" value="" maxlength="200" data-rsfeedbacker-label="Имя" class="form-control" name="name" id="name" required="required">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label class="control-label" for="email">E-mail *</label>
-                                <input type="email" value="" maxlength="200" data-rsfeedbacker-label="E-mail" class="form-control" name="email" id="email" required="required">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label class="control-label" for="phone">Телефон</label>
-                                <input type="text" value="" maxlength="200" data-rsfeedbacker-label="Телефон" class="form-control" name="phone" id="phone">
-                            </div>
-                        </div>
-                    </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">DEFAULT</div>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="submit" value="Отправить" class="btn btn-primary btn-block btn-lg" data-loading-text="Отправить">
-                        </div>
+                <div class="panel-body">
+
+                <!-- DEFAULT -->
+                    <div class="default-box form_box">
+                        <form action="/send.php" method="POST" class="form_for_send" novalidate="novalidate">
+
+                            <div>
+                                <div><label>Имя: <b>*</b></label></div>
+                                <input type="text" name="name" required="required" data-rsfeedbacker-label="Имя" placeholder="Имя *">
+                            </div>
+
+                            <div>
+                                <div><label>E-mail: <b>*</b></label></div>
+                                <input type="email" name="email" required="required" data-rsfeedbacker-label="E-mail" placeholder="E-mail *">
+                            </div>
+
+                            <div>
+                                <div><label>Телефон: </label></div>
+                                <input type="text" name="phone" data-rsfeedbacker-label="Телефон" placeholder="Телефон">
+                            </div>
+
+                            <div>
+                                <input type="submit" value="Отправить">
+                                <input type="reset" value="Отмена">
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
 
+            <hr>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">BOOTSTRAP</div>
+
+                <div class="panel-body">
+                    <!-- BOOTSTRAP -->
+                    <div class="col-md-12 form_box">
+                        <form action="/send.php" method="POST" class="bootstrap_form_for_send" novalidate="novalidate">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label class="control-label" for="name">Имя *</label>
+                                        <input type="text" value="" maxlength="200" data-rsfeedbacker-label="Имя" class="form-control" name="name" id="name" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label class="control-label" for="email">E-mail *</label>
+                                        <input type="email" value="" maxlength="200" data-rsfeedbacker-label="E-mail" class="form-control" name="email" id="email" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label class="control-label" for="phone">Телефон</label>
+                                        <input type="text" value="" maxlength="200" data-rsfeedbacker-label="Телефон" class="form-control" name="phone" id="phone">
+                                    </div>
+                                </div>
+                            </div>
+<br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="submit" value="Отправить" class="btn btn-primary" data-loading-text="Отправить">
+                                    <input type="reset" value="Отмена" class="btn btn-default" data-loading-text="Отмена">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
         <!-- JS -->
@@ -78,7 +118,12 @@
 
             $('document').ready(function () {
                 $('form.form_for_send').rsFeedbacker();
-                $('form.bootstrap_form_for_send').rsFeedbacker({'type': 'bootstrap'});
+                $('form.bootstrap_form_for_send').rsFeedbacker({
+                    'type': 'bootstrap',
+                    'afterCheckForm': function (e, errors) {
+                        console.log(this, errors);
+                    }
+                });
             });
         </script>
     </body>

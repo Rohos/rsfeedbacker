@@ -2,7 +2,7 @@
 Простой Jquery плагин для отправки данных html формы. Работает асинхронно без перезагрузки и производит простую проверку, которая дополняется проверкой на сервере. На данный момент в плагине присутствует 2 типа поведения - "default" и "bootstrap". 
 
 ### Версия
-0.0.1
+0.1.0
 
 ### Установка (default)
 * Подключаем Jquery последней версии
@@ -32,9 +32,11 @@ $('form.form_for_send').rsFeedbacker({'type': 'bootstrap'});
 - type - тип поведения плагина (string, по умолч. "defaul", еще есть "bootstrap")
 - need
 - successMsg - текст сообщения при успешной отправке (string, по умолч. "Спасибо, сообщение успешно отправлено")
+- notCheckFields - селекторы полей которые не надо проверять (string, по умолч. '[type="submit"], [type="reset"]')
 - errorMsgs - текст сообщения ошибки (object, по умолч. {'default': 'Поле {{%field%}} обязательно для заполнения'})
     
 ### Использование
+Используйте novalidate для формы чтобы отключить html5 валидацию
 Плагин вешается на форму. Для типа "default" форма должна быть вложена в родительский контейнер с классом указанном в настройке "boxCls":
 ```
 <div class="form_box">
@@ -57,6 +59,10 @@ $('form.form_for_send').rsFeedbacker({'type': 'bootstrap'});
 ```
 <input type="text" name="phone">
 ```
+- Так же поля которые не надо проверять задаются в настройках
+```
+{'notCheckFields': '[type="submit"], [type="reset"], [name="email"]'}
+```
 Текст ошибки задается в настройке "errorMsgs" по умолчаю это объект:
 ```
 {'default': 'Поле {{%field%}} обязательно для заполнения'}
@@ -69,3 +75,6 @@ $('form.form_for_send').rsFeedbacker({'type': 'bootstrap'});
 ```
 $('form.form_for_send').rsFeedbacker({'needTrimVal': false});
 ```
+### Callbacks
+            'beforeCheckForm', 'afterCheckForm', 'beforeShowSuccess', 'afterShowSuccess',
+            'beforeSendForm', 'afterSendForm', 'failSendForm', 'beforeShowErrors', 'afterShowErrors'

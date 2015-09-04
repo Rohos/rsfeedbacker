@@ -9,7 +9,7 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) != 'POST')
 define('FLD_LBL_PATTERN', '{{%field%}}');
 
 // Данные для ответа
-$data = array('errors' => array());
+$answer = array('errors' => array());
 
 // Заголовок письма
 $subject = 'Письмо обратной связи';
@@ -76,5 +76,5 @@ if (empty($answer['errors']))
 
 // Возвращаем ответ в формате JSON
 header('Content-Type: application/json; charset=utf-8');
-die(json_encode($data));
+die(json_encode($answer));
 ?>
